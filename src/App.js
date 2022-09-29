@@ -4,6 +4,10 @@ import { Msg } from './Msg';
 import { AddColor } from './AddColor';
 import { useState } from 'react';
 import { Counter } from './Counter';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Toolbar } from '@mui/material';
+
 
 const INITIAL_MOVIE_LIST = [
   {
@@ -77,7 +81,7 @@ const INITIAL_MOVIE_LIST = [
 ]
 
 function App() {
-  //js starts
+
 const name ="abhishek"
 
 const people =["Abhishek","Ajith","Akash"];
@@ -100,35 +104,34 @@ const users = [
   },
 ]
 
-  //js ends
-  //jsx starts
-  //DRY -Dont repeat yourself
-  return (
-    <div className="App">
-     {/* <h1>Hello {name} 😀</h1>
-    {people.map( personName =><Welcome name={personName}/>  )} */}
-    
-  {/* {users.map((user) => 
-  <Msg name={user.name}  pic={user.pic}  />
-  )} */}
-     {/* <Welcome name={people[2]}/> */}
+//1. creating  -createContext
+//2. Publisher - provider- context.provider
+//3. subscriber - useContext
+ 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
-     {/* <Msg name="Abhishek" pic="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
-     <Msg name="Ajith" pic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU"/>
-     <Msg name="Akash" pic="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"/> */}
+  return (
+    <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+   <Toolbar>
+    <div className="App">
      
-     {/* <Counter /> */}
-{/*      
-    <AddColor /> */}
   <div className="movie-list">
   {movieList.map((mv, index) => (
     <Movie key={index} movie={mv} />
   ))}
-  <Counter />
+  {/* <Button color="inherit" onClick{() =>navigate("/counter")}>Counter</Button> */}
+  {/* <Counter /> */}
   </div>
     
 
     </div>
+    </Toolbar>
+    </ThemeProvider>
   );
   //jsx ends
 }

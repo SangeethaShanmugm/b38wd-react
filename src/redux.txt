@@ -1,0 +1,17 @@
+//redux  - -storing all state in "store"
+
+//Terminology
+
+// 1. store - state manage
+// 2. Action - CRUD operation 
+// 3. Reducer - what to add - function
+// 4. Dispatch - state changes
+
+Steps
+-------
+
+1. Design the store
+2. Define the actions
+3. Create a Reducer
+4. Set up the store
+

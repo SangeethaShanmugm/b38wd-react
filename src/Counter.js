@@ -11,7 +11,7 @@ export function Counter() {
       {/* onClick - camelCase */}
       <button onClick={() => { setLike(like + 1); }}>👍 {like}</button>
       <button onClick={() => { setDislike(dislike + 1); }}>👎 {dislike}</button>
-      <AddColor />
+      {/* <AddColor /> */}
     </>
   );
 }
